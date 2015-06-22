@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles=Article.all
+    @article = Article.new
   end
 
   def show
@@ -46,7 +47,9 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+
+
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :tag_list)
   end
 end
